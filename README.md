@@ -2,7 +2,7 @@
 
 ## Experimental
 
-This is an experimental setup for armhf multiarch support on [Arch Linux Arm](https://archlinuxarm.org/) (alarm) using the [ArchLinuxCN](https://github.com/archlinuxcn/repo) repo. Basic programs run currently and a few games. This method still uses a 32bit environment, but only as a runtime folder for 32bit libraries. Some PKGBUILDS are provided for easy of use, others are pulled from their repo.
+This is an experimental setup for armhf multiarch support on [Arch Linux Arm](https://archlinuxarm.org/) (alarm) using the [ArchLinuxCN](https://github.com/archlinuxcn/repo) repo. Only basic programs and a few games run currently. This method still uses a 32bit environment, but only as a runtime folder for 32bit libraries since alarm isn't originally setup for multiarch. Some PKGBUILDS are provided for easy of use, others are pulled from their repo. If you have and insight, suggestions, or scripts to make this better, please share. 
 
 This guide will require basic terminal usage.
 
