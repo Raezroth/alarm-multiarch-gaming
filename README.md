@@ -72,10 +72,10 @@ Use can also use `sudo arch-chroot /home/$USER/.armv7h/` to chroot into the runt
 
 **NOTE: Only append this when running software that requires 32bit libraries, DO NOT EXPORT**
 
-Add 32bit libraries to `LD_LIBRARY_PATH` :
+Add 32bit libraries to `/etc/ld.so.cache` :
 
 ```
-LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/arm-linux-gnueabihf/lib/:/home/$USER/.armv7h/usr/lib/
+sudo ldconfig /usr/arm-linux-gnueabihf/lib/ && sudo ldconfig /home/$USER/.armv7h/usr/lib/
 ```
 
 ```
