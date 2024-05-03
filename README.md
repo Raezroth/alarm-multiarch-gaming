@@ -116,10 +116,8 @@ box64 --help
 ```
 
 ```
-LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/arm-linux-gnueabihf/lib/:/home/$USER/.armv7h/usr/lib box86 --help
+box86 --help
 ```
-
-**Box86 requires LD_LIBRARY_PATH to point to a 32bit libraries since Alarm doesn't have proper multiarch**
 
 ---
 
