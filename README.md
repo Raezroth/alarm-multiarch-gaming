@@ -61,35 +61,35 @@ sudo pacman -S arch-install-scripts arm-linux-gnueabihf-binutils arm-linux-gnuea
 Use `pacstrap` from `arch-install-scripts` to setup a 32bit runtime:
 
 ```
-sudo pacstrap -C ./etc/pacman.conf /home/$USER/.armv7h base base-devel chromium pipewire pipewire-alsa pipewire-pulse
+sudo pacstrap -C ./etc/pacman.conf /opt/armv7h base base-devel chromium pipewire pipewire-alsa pipewire-pulse
 ```
 
-Use this pacstrap command to add more package/libraries to the runtime when needed later on. `sudo pacstrap -C /home/$USER/.armv7h/etc/pacman.conf /home/$USER/.armv7h PACKAGES`
+Use this pacstrap command to add more package/libraries to the runtime when needed later on. `sudo pacstrap -C /opt/armv7h/etc/pacman.conf /opt/armv7h PACKAGES`
 
-Use can also use `sudo arch-chroot /home/$USER/.armv7h/` to chroot into the runtime and manage for there with `pacman`
+Use can also use `sudo arch-chroot /opt/armv7h/` to chroot into the runtime and manage for there with `pacman`
 
 ---
 
 **NOTE: Only append this when running software that requires 32bit libraries, DO NOT EXPORT**
 
-Add 32bit libraries to `/etc/ld.so.cache` :
+Add MultiArch to `/etc/ld.so.conf.d/` :
 
 ```
-sudo ldconfig /usr/arm-linux-gnueabihf/lib/ && sudo ldconfig /home/$USER/.armv7h/usr/lib/
+sudo cp -r /home/$USER/alarm-multiarch-gaming/etc/ld.so.conf.d/* /etc/ld.so.conf.d/ && sudo ldconfig
 ```
 
-```
-PATH=$PATH:/usr/arm-linux-gnueabihf/bin
-```
-
-For programs that require 32bit libgl mesa:
+Optional, add `/usr/arm-linux-gnueabihf/bin` to `PATH` :
 
 ```
-LIBGL_DRIVERS_PATH=/home/alarm/.armv7h/usr/lib/dri/
+export PATH=$PATH:/usr/arm-linux-gnueabihf/bin
 ```
 
+For programs that require 32bit libgl mesa, we need to add 32bit driver to `LIBGL_DRIVERS_PATH` :
 
-**NOTE: Only append this when running software that requires 32bit libraries, DO NOT EXPORT**
+```
+export LIBGL_DRIVERS_PATH=/usr/lib/dri/:/opt/dri/armv7h/usr/lib/dri/
+```
+This can be added to `~/.bashrc` or `.bash_profile` for ease of use.
 
 ---
 
@@ -132,7 +132,7 @@ cd /home/$USER/alarm-multiarch-gaming/steam-arm64 && makepkg --syncdeps -i
 **After succesfull install:**
 
 ```
-LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/arm-linux-gnueabihf/lib:/home/$USER/.armv7h/usr/lib steam
+steam
 ```
 
 ---
