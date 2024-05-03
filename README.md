@@ -79,6 +79,13 @@ LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/arm-linux-gnueabihf/lib/:/home/$USER/.armv
 PATH=$PATH:/usr/arm-linux-gnueabihf/bin
 ```
 
+For programs that require 32bit libgl mesa:
+
+```
+LIBGL_DRIVERS_PATH=/home/alarm/.armv7h/usr/lib/dri/
+```
+
+
 **NOTE: Only append this when running software that requires 32bit libraries, DO NOT EXPORT**
 
 ---
