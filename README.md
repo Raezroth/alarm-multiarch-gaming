@@ -64,8 +64,11 @@ Use `pacstrap` from `arch-install-scripts` to setup a 32bit runtime:
 sudo pacstrap -C ./etc/pacman.conf /home/$USER/.armv7h base base-devel chromium pipewire pipewire-alsa pipewire-pulse
 ```
 
-Use this pacstrap command to add more package/libraries to the runtime. `sudo pacstrap -C /home/$USER/.armv7h/etc/pacman.conf /home/$USER/.armv7h PACKAGES`
+Use this pacstrap command to add more package/libraries to the runtime when needed later on. `sudo pacstrap -C /home/$USER/.armv7h/etc/pacman.conf /home/$USER/.armv7h PACKAGES`
 
+Use can also use `sudo arch-chroot /home/$USER/.armv7h/` to chroot into the runtime and manage for there with `pacman`
+
+---
 
 **NOTE: Only append this when running software that requires 32bit libraries, DO NOT EXPORT**
 
