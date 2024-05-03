@@ -90,13 +90,13 @@ PATH=$PATH:/usr/arm-linux-gnueabihf/bin
 or Manually compile PKGBUILD:
 
 ```
-git clone https://github.com/ptitSeb/box64.git /home/$USER/alarm-multiarch-gaming/box64 && cd /home/$USER/alarm-multiarch-gaming/box64/pkgbuilds && mv ./PKGBUILD-arm64 ./PKGBUILD && makepkg --syncdeps -i
+git clone https://github.com/ptitSeb/box64.git /home/$USER/alarm-multiarch-gaming/box64 && cd /home/$USER/alarm-multiarch-gaming/box64/pkgbuilds && cp -r ./PKGBUILD-arm64 ./PKGBUILD && makepkg --syncdeps -i
 ```
 
 [Box86](https://github.com/ptitSeb/box86) need to manually compile PKGBUILD:
 
 ```
-git clone https://github.com/ptitSeb/box86.git /home/$USER/alarm-multiarch-gaming/box86 && cd /home/$USER/alarm-multiarch-gaming/box86/pkgbuilds && mv ./PKGBUILD-arm64 ./PKGBUID && makepkg --syncdeps -i
+git clone https://github.com/ptitSeb/box86.git /home/$USER/alarm-multiarch-gaming/box86 && cd /home/$USER/alarm-multiarch-gaming/box86/pkgbuilds && cp -r ./PKGBUILD-arm64 ./PKGBUID && makepkg --syncdeps -i
 ```
 
 After both are setup, run a test:
