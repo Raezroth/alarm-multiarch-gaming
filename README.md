@@ -2,7 +2,7 @@
 
 ## Experimental
 
-This is an experimental setup for armhf multiarch support on [Arch Linux Arm](https://archlinuxarm.org/) (alarm) using the [ArchLinuxCN](https://github.com/archlinuxcn/repo) repo. Only basic programs and a few games run currently. This method still uses a 32bit environment, but only as a runtime folder for 32bit libraries since alarm isn't originally setup for multiarch. Some PKGBUILDS are provided for easy of use, others are pulled from their repo. If you have and insight, suggestions, or scripts to make this better, please share. 
+This is an experimental setup for armhf multiarch support on [Arch Linux Arm](https://archlinuxarm.org/) (alarm) using the [ArchLinuxCN](https://github.com/archlinuxcn/repo) repo. Only basic programs and a few games run currently. This method still uses a 32bit environment, but only as a runtime folder for 32bit libraries since alarm isn't originally setup for multiarch. Some pacakges & PKGBUILDS are provided for easy of use, others are pulled from their repo. If you have and insight, suggestions, or scripts to make this better, please share. 
 
 This guide will require basic terminal usage.
 
@@ -52,6 +52,15 @@ Use your package manager to install dependancies:
 
 ```
 sudo pacman -S arch-install-scripts arm-linux-gnueabihf-binutils arm-linux-gnueabihf-gcc arm-linux-gnueabihf-gcc-fortran arm-linux-gnueabihf-gcc-libs arm-linux-gnueabihf-gcc-objc arm-linux-gnueabihf-glibc arm-linux-gnueabihf-linux-api-headers
+```
+
+Precompiled glibc 2.39 with multiarch flag enabled in [Releases](https://github.com/Raezroth/alarm-multiarch-gaming/releases)
+
+```
+mkdir pkgs && cd pkgs
+wget https://github.com/Raezroth/alarm-multiarch-gaming/releases/download/000/glibc-2.39-4-aarch64.pkg.tar.xz
+wget https://github.com/Raezroth/alarm-multiarch-gaming/releases/download/000/glibc-locales-2.39-4-aarch64.pkg.tar.xz
+sudo pacman -U ./glibc*
 ```
 
 ---
