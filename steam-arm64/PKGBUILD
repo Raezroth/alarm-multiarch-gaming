@@ -35,7 +35,7 @@ depends=(
   libxcrypt-compat
   gcc-libs
 )
-depemnds_aarch64=(
+depends_aarch64=(
   box86-arm64-git
   box64-git
   )
