@@ -54,15 +54,6 @@ Use your package manager to install dependancies:
 sudo pacman -S arch-install-scripts arm-linux-gnueabihf-binutils arm-linux-gnueabihf-gcc arm-linux-gnueabihf-gcc-fortran arm-linux-gnueabihf-gcc-libs arm-linux-gnueabihf-gcc-objc arm-linux-gnueabihf-glibc arm-linux-gnueabihf-linux-api-headers
 ```
 
-Precompiled glibc 2.39 with multiarch flag enabled in [Releases](https://github.com/Raezroth/alarm-multiarch-gaming/releases)
-
-```
-mkdir pkgs && cd pkgs
-wget https://github.com/Raezroth/alarm-multiarch-gaming/releases/download/000/glibc-2.39-4-aarch64.pkg.tar.xz
-wget https://github.com/Raezroth/alarm-multiarch-gaming/releases/download/000/glibc-locales-2.39-4-aarch64.pkg.tar.xz
-sudo pacman -U ./glibc*
-```
-
 ---
 
 ### Pacstrap a 32bit environment to use as a runtime: (This is for Box86 to run applicatioins beyond itself and Undertale)
@@ -86,17 +77,20 @@ Add MultiArch to `/etc/ld.so.conf.d/` :
 ```
 sudo cp -r /home/$USER/alarm-multiarch-gaming/etc/ld.so.conf.d/* /etc/ld.so.conf.d/ && sudo ldconfig
 ```
+```
+sudo ln -s /lib/arm-linux-gnueabihf/lib/ld-linux-armhf.so /lib/ld-linux-armhf.so
+```
 
 Optional, add `/usr/arm-linux-gnueabihf/bin` to `PATH` :
 
 ```
-export PATH=$PATH:/usr/arm-linux-gnueabihf/bin
+PATH=$PATH:/usr/arm-linux-gnueabihf/bin
 ```
 
 For programs that require 32bit libgl mesa, we need to add 32bit driver to `LIBGL_DRIVERS_PATH` :
 
 ```
-export LIBGL_DRIVERS_PATH=/usr/lib/dri/:/opt/dri/armv7h/usr/lib/dri/
+LIBGL_DRIVERS_PATH=/usr/lib/dri/:/opt/dri/armv7h/usr/lib/dri/
 ```
 This can be added to `~/.bashrc` or `.bash_profile` for ease of use.
 
